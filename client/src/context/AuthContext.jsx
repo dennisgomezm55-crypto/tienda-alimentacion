@@ -1,6 +1,5 @@
 // context/AuthContext.jsx
-// Contexto global de autenticación: guarda la sesión del usuario (token y datos)
-// y la pone a disposición de toda la aplicación.
+//Guarda la sesion del usuario (token y usuario) , y lo proporciona a toda la app
 
 import { createContext, useContext, useState } from "react";
 
@@ -10,7 +9,6 @@ const AuthContext = createContext();
 // Componente proveedor: envuelve la app y reparte la sesión a todos
 export function AuthProvider({ children }) {
   // Al arrancar, intentamos recuperar la sesión guardada en localStorage.
-  // Usamos una función en el useState para que esta lectura se haga UNA sola vez.
   const [token, setToken] = useState(() => localStorage.getItem("token"));
   const [usuario, setUsuario] = useState(() => {
     const guardado = localStorage.getItem("usuario");

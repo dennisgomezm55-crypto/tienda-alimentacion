@@ -29,7 +29,7 @@ app.use(
 );
 app.use(express.json()); // permite recibir datos en formato JSON en el body
 
-// Rutas de la API de productos. Todas cuelgan de /api/productos
+// Rutas de la API de productos.
 app.use("/api/productos", productoRoutes);
 
 // Rutas de autenticación. Cuelgan de /api/auth
@@ -43,7 +43,7 @@ app.get("/", (req, res) => {
 // Leemos el puerto del .env, o usamos el 4000 por defecto
 const PORT = process.env.PORT || 4000;
 
-// Middlewares de error: SIEMPRE al final, después de todas las rutas
+// Middlewares de error:
 app.use(rutaNoEncontrada);
 app.use(errorServidor);
 

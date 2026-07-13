@@ -1,6 +1,5 @@
 // controllers/auth.controller.js
 // Lógica de autenticación: registro de usuarios y login.
-// Usa bcrypt para hashear contraseñas y JWT para generar tokens de sesión.
 
 import Usuario from "../models/usuario.model.js";
 import bcrypt from "bcrypt";

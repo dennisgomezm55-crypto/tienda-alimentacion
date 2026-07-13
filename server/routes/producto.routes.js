@@ -1,6 +1,5 @@
 // routes/producto.routes.js
 // Define las rutas (endpoints) de la API para los productos.
-// Cada ruta conecta un método HTTP y una URL con su función del controlador.
 
 import verificarToken from "../middlewares/auth.middleware.js";
 import { Router } from "express";

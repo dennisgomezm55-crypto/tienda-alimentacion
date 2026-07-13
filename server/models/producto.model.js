@@ -1,6 +1,5 @@
 // models/producto.model.js
 // Esquema que define la estructura de un producto en la tienda de alimentación.
-// Cada documento de la colección "productos" seguirá esta forma.
 
 import mongoose from "mongoose";
 
@@ -29,7 +28,7 @@ const productoSchema = new mongoose.Schema({
     ],
   },
 
-  // Precio en euros. Number para poder hacer cálculos si hiciera falta
+  // Precio en euros.
   precio: {
     type: Number,
     required: true,
@@ -50,7 +49,7 @@ const productoSchema = new mongoose.Schema({
     default: true,
   },
 
-  // Descripción corta del producto
+  // Descripción
   descripcion: {
     type: String,
     trim: true,
@@ -63,7 +62,6 @@ const productoSchema = new mongoose.Schema({
   },
 
   // Fecha en la que se dio de alta el producto.
-  // Se rellena sola con la fecha actual al crear el documento.
   fechaAlta: {
     type: Date,
     default: Date.now,
@@ -71,7 +69,6 @@ const productoSchema = new mongoose.Schema({
 });
 
 // Creamos el modelo a partir del esquema y lo exportamos.
-// Mongoose creará automáticamente la colección "productos" en la BBDD.
 const Producto = mongoose.model("Producto", productoSchema);
 
 export default Producto;

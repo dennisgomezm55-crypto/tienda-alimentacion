@@ -40,7 +40,7 @@ function Login() {
   return (
     <div className="pagina-login">
       <div className="tarjeta-formulario">
-        <h1>Tienda de alimentación</h1>
+        <h1>Alimentación Miguel</h1>
         <form onSubmit={manejarSubmit}>
           <div className="campo-formulario">
             <label htmlFor="identificador">Usuario o email</label>

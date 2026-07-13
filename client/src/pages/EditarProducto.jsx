@@ -12,7 +12,7 @@ import {
 import FormularioProducto from "../components/FormularioProducto.jsx";
 
 function EditarProducto() {
-  const { id } = useParams(); // saca el :id de la URL
+  const { id } = useParams();
   const { token } = useAuth();
   const navigate = useNavigate();
 
