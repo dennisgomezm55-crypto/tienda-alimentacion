@@ -1,0 +1,272 @@
+/* index.css
+   Estilos globales y sistema de diseño de la tienda:
+   variables de color, tipografía y espaciado usadas en todo el proyecto. */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+:root {
+  /* Colores */
+  --color-fondo: #faf7f2;
+  --color-texto: #2b2b28;
+  --color-acento: #4a5d3a;
+  --color-acento-hover: #3a4a2d;
+  --color-borde: #e4dfd4;
+  --color-error: #b3261e;
+  --color-blanco: #ffffff;
+
+  /* Escala de espaciado: SIEMPRE usar estos valores, nunca un número suelto */
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 16px;
+  --espacio-4: 24px;
+  --espacio-5: 32px;
+  --espacio-6: 48px;
+
+  /* Bordes redondeados, consistentes en toda la app */
+  --radio: 8px;
+}
+
+/* Reseteo básico: quitamos los márgenes raros que trae el navegador por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+/* Botones: un único estilo base para TODOS los botones del proyecto */
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio);
+  border: none;
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+button:hover {
+  background-color: var(--color-acento-hover);
+}
+
+button:disabled {
+  background-color: var(--color-borde);
+  color: var(--color-texto);
+  cursor: not-allowed;
+}
+
+/* Los enlaces que usamos como botones (Editar, Nuevo producto) tienen la MISMA pinta */
+a {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mensaje-error {
+  color: var(--color-error);
+  background-color: #fbeae9;
+  padding: var(--espacio-2) var(--espacio-3);
+  border-radius: var(--radio);
+  margin-top: var(--espacio-2);
+}
+/* Contenedor general de cada página: centra el contenido y le da aire a los lados */
+.pagina {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--espacio-5) var(--espacio-4);
+}
+
+.texto-secundario {
+  color: #6b655c;
+  font-size: 0.9rem;
+}
+
+/* Cabecera: título a un lado, acciones al otro */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-3);
+  margin-bottom: var(--espacio-5);
+  padding-bottom: var(--espacio-4);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.acciones-cabecera {
+  display: flex;
+  gap: var(--espacio-2);
+}
+
+/* La lista pierde los estilos de "lista" por defecto (topos, etc.) */
+.lista-productos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+/* Cada producto es una tarjeta con su propio espacio, no una línea pegada a la siguiente */
+.producto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--espacio-3);
+  background-color: var(--color-blanco);
+  padding: var(--espacio-3) var(--espacio-4);
+  border-radius: var(--radio);
+  border: 1px solid var(--color-borde);
+}
+
+.producto-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+}
+
+/* Las acciones (Editar/Eliminar) van SIEMPRE con el mismo hueco entre ellas */
+.producto-acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  flex-shrink: 0;
+}
+
+/* Estilo base compartido por los "botones" que en realidad son <Link> */
+.boton {
+  display: inline-block;
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio);
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.15s ease;
+}
+
+.boton-primario {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+.boton-primario:hover {
+  background-color: var(--color-acento-hover);
+}
+
+/* Editar: mismo tamaño que los demás botones, pero en outline para diferenciarlo del primario */
+.boton-secundario {
+  background-color: transparent;
+  color: var(--color-acento);
+  border: 1px solid var(--color-acento);
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio);
+  font-weight: 600;
+}
+.boton-secundario:hover {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+/* Eliminar: mismo tamaño exacto, pero en rojo, porque es una acción destructiva */
+.boton-peligro {
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: var(--radio);
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.boton-peligro:hover {
+  background-color: var(--color-error);
+  color: var(--color-blanco);
+}
+/* Tarjeta contenedora para formularios (Login, Crear, Editar) */
+.tarjeta-formulario {
+  max-width: 480px;
+  margin: var(--espacio-6) auto;
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: var(--espacio-5);
+}
+
+.tarjeta-formulario h1 {
+  margin-bottom: var(--espacio-4);
+  font-size: 1.5rem;
+}
+
+/* Cada campo (label + input) va en columna, con hueco fijo entre ellos */
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  margin-bottom: var(--espacio-3);
+}
+
+.campo-formulario label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: var(--espacio-2) var(--espacio-3);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  background-color: var(--color-fondo);
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+}
+
+/* El checkbox de "Disponible" no necesita ir en columna, va en fila con su texto */
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  margin-bottom: var(--espacio-4);
+}
+
+.campo-checkbox input {
+  width: auto;
+}
+
+/* El botón de guardar ocupa todo el ancho, para que destaque como acción principal */
+.tarjeta-formulario button[type="submit"] {
+  width: 100%;
+  margin-top: var(--espacio-2);
+}
+/* Centrado vertical especial para la pantalla de login */
+.pagina-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagina-login .tarjeta-formulario {
+  margin: 0;
+}

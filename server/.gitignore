@@ -1,0 +1,5 @@
+# Dependencias (se reinstalan con npm install, no se suben)
+node_modules/
+
+# Variables de entorno con datos sensibles
+.env
