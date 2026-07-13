@@ -22,7 +22,11 @@ conectarDB();
 const app = express();
 
 // Middlewares globales
-app.use(cors()); // permite peticiones desde otro origen (el React)
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
+  }),
+);
 app.use(express.json()); // permite recibir datos en formato JSON en el body
 
 // Rutas de la API de productos. Todas cuelgan de /api/productos
