@@ -57,7 +57,12 @@ function EditarProducto() {
       <div className="tarjeta-formulario">
         <h1>Editar Producto</h1>
         {error && <p className="mensaje-error">{error}</p>}
-        <FormularioProducto onGuardar={manejarGuardar} cargando={cargando} />
+        <FormularioProducto
+          key={producto._id}
+          productoInicial={producto}
+          onGuardar={manejarGuardar}
+          cargando={cargando}
+        />
       </div>
     </div>
   );
